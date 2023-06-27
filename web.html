@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Green Farm</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <style type="text/css">
+        h1,h2,p,a{
+            font-family: sans-serif;
+            font-weight: normal;
+        }
+     
+        .jam_analog {
+            background: #e7f2f7;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #678983;
+            border-radius: 50%;
+            padding: 20px;
+            margin:20px auto;
+        }
+     
+        .xxx {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+     
+        .jarum {
+            position: absolute;
+            width: 50%;
+            background: #232323;
+            top: 50%;
+            transform: rotate(90deg);
+            transform-origin: 100%;
+            transition: all 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+     
+        .lingkaran_tengah {
+            width: 10px;
+            height: 10px;
+            background: #232323;
+            border: 4px solid #678983;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -9px;
+            margin-top: -9px;
+            border-radius: 50%;
+        }
+     
+        .jarum_detik {
+            height: 2px;
+            border-radius: 1px;
+            background: #f05252;
+        }
+     
+        .jarum_menit {
+            height: 4px;
+            border-radius: 15px;
+        }
+     
+        .jarum_jam {
+            height: 6px;
+            border-radius: 4px;
+            width: 35%;
+            left: 15%;
+        }
+    </style>
+    <nav>
+        <div class="jam_analog">
+            <div class="xxx">
+                <div class="jarum jarum_detik"></div>
+                <div class="jarum jarum_menit"></div>
+                <div class="jarum jarum_jam"></div>
+                <div class="lingkaran_tengah"></div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            const secondHand = document.querySelector('.jarum_detik');
+            const minuteHand = document.querySelector('.jarum_menit');
+            const jarum_jam = document.querySelector('.jarum_jam');
+         
+            function setDate(){
+                const now = new Date();
+         
+                const seconds = now.getSeconds();
+                const secondsDegrees = ((seconds / 60) * 360) + 90;
+                secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+                if (secondsDegrees === 90) {
+                    secondHand.style.transition = 'none';
+                } else if (secondsDegrees >= 91) {
+                    secondHand.style.transition = 'all 0.05s cubic-bezier(0.1, 2.7, 0.58, 1)'
+                }
+         
+                const minutes = now.getMinutes();
+                const minutesDegrees = ((minutes / 60) * 360) + 90;
+                minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+         
+                const hours = now.getHours();
+                const hoursDegrees = ((hours / 12) * 360) + 90;
+                jarum_jam.style.transform = `rotate(${hoursDegrees}deg)`;
+            }
+         
+            setInterval(setDate, 1000)
+        </script>
+        <div class="wrapper">
+            <div class="logo"><a href=''>          Big Green Farm</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="useful.html">Useful Info</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <!--untuk home-->
+        <section id="home">
+            <img src="https://image.freepik.com/free-vector/support-local-farmers-concept_23-2148592676.jpg"/>
+            <div class="kolom">
+                <p class="deskripsi">Come With Us</p>
+                <h2>Grow Healthy Farm Give Healthy Life</h2>
+                <p>Dengan sumber pangan yang sehat, tubuh akan mendapatkan nutrisi yang sempurna</p>
+            </div>
+        </section>
+
+    <div id="contact">
+        <div class="wrapper">
+            <div class="footer">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p><b>Our History</b></p>
+                    <p><b>Big Green Farm Philosophy</b></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Jl. Ahmad Yani, Banyuwangi</p>
+                    <p>Kode Pos: 68421</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Social</h3>
+                    <p><b>YouTube: Big Green Farm</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mapouter"><div class="gmap_canvas"><iframe width="1100" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=jl%20ahmad%20yani,%20banyuwangi&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-org.net"></a><br><style>.mapouter{position:relative;text-align:right;height:300px;width:1100px;}</style><a href="https://www.embedgooglemap.net">how to add a map to wordpress</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:1100px;}</style></div></div>
+
+    <div id="copyright">
+        <div class="wrapper">
+            &copy; 2021. <b>Big Green Farm</b> All Rights Reserved.
+        </div>
+    </div>
+
+</body>
+</html>
